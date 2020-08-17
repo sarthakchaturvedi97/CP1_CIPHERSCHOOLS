@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int squareit(int n)
+    {
+        int sum=0;
+        while(n)
+        {
+            int r=n%10;
+            sum+=r*r;
+            n/=10;
+        }
+        return sum;
+    }
+    bool isHappy(int n) {
+        int slow=squareit(n);
+        int fast=squareit(squareit(n));
+        while(slow!=fast)
+        {
+            slow=squareit(slow);
+            fast=squareit(squareit(fast));
+        }
+        return fast==1;
+    }
+};
