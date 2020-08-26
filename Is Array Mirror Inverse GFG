@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+ int n;
+ cin>>n;
+ int *arr=new int[n];
+ for(int i=0;i<n;i++)
+ {
+     cin>>arr[i];
+ }
+ int *arr2=new int[n];
+ for(int i=0;i<n;i++)
+ {
+     arr2[arr[i]]=i;
+ }
+ int c=0;
+ for(int i=0;i<n;i++)
+ {
+     if(arr[i]!=arr2[i])
+     {
+         ++c;
+         break;
+     }
+ }
+ if(!c)
+ {
+     cout<<"YES"<<endl;
+ }
+ else
+ {
+     cout<<"NO"<<endl;
+ }
+ delete []arr;
+ delete []arr2;
+	return 0;
+}
