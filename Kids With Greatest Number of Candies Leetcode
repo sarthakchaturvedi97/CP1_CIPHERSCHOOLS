@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<int> cand(candies.begin(),candies.end());
+        vector<bool> result;
+        sort(cand.begin(),cand.end());
+        int n=cand[cand.size()-1];
+        for(int i=0;i<candies.size();i++)
+        {
+            if(candies[i]+extraCandies>=n)
+            {
+                result.push_back(true);
+            }
+            else
+            {
+                result.push_back(false);
+            }
+        }
+        return result;
+    }
+};
