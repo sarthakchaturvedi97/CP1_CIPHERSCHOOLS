@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+int check(int n)
+{
+    int num=n,num2=n;
+    int count=floor(log10(n)+1);
+    int s=0;
+    while(num2)
+    {
+        s+=pow(num2%10,count);
+        num2=num2/10;
+    }
+    return s==n?true:false;
+}
+int main() {
+ int n;
+ cin>>n;
+ if(check(n))
+ cout<<"Yes"<<endl;
+ else
+ cout<<"No"<<endl;
+	return 0;
+}
