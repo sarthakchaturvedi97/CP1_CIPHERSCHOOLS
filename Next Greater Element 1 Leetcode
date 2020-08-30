@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int findelement(vector<int> &nums2,int element)
+    {
+       int i=0;
+        for( i=0;i<nums2.size();i++)
+        {
+            if(nums2[i]==element)
+                break;
+        }
+        if(i==nums2.size()||i==nums2.size()-1)
+            return -1;
+        
+        for(;i<nums2.size();i++)
+        if(nums2[i] > element)
+            return nums2[i];
+    
+    return -1;
+    }
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> result(nums1.size());
+        for(int i=0;i<nums1.size();i++)
+        {
+            result[i]=findelement(nums2,nums1[i]);
+        }
+        return result;
+    }
+};
