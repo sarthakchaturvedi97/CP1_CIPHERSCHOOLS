@@ -1,0 +1,29 @@
+Node * inOrderSuccessor(Node *root, Node *x)
+{
+     Node* result=NULL;
+    
+    while(root && root!=x)
+    {
+        if(root->data<x->data)
+        root=root->right;
+        else
+        {
+            result=root;
+            root=root->left;
+        }
+    }
+    if(!root) 
+    {
+        return NULL;
+    }
+    if(!root->right)
+    {
+        return result;
+    }
+    root=root->right;
+    while(root->left)
+    {
+    root=root->left;
+    }    
+    return root;
+}
