@@ -1,0 +1,17 @@
+class Solution {
+public:
+     int findTargetSumWays(vector<int>& nums, int S) {
+    unordered_map<int, int> ans;
+    ans[0] = 1;
+    for (auto n:nums) {
+      unordered_map<int, int> ans2;
+      for (auto p : ans) {
+        int sum = p.first, cnt = p.second;
+        ans2[sum + n] += cnt;
+        ans2[sum - n] += cnt;
+      }
+      ans = ans2;
+    }
+    return ans[S];
+  }
+};
