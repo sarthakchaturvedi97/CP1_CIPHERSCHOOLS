@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void check(int count[26], int &result) {
+        for(int i = 0; i < 26; ++i) {
+            if (count[i]){
+                count[i]--;
+                result++;
+                check(count, result);
+                count[i]++;
+            }
+        }
+    }
+    int numTilePossibilities(string tiles) {
+       int count[26] {};
+        for (const auto &k :  tiles) {
+            count[k - 'A']++;
+        }
+        int result = 0;
+        check(count, result);
+        return result;
+    }
+};
+
+   
